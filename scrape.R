@@ -1,6 +1,7 @@
 library(httr2)
 
-cat("The key is ", Sys.getenv("NEWS_API_KEY"), file = stderr())
+cat("The key is ", Sys.getenv("NEWS_API_KEY"), "\n",
+    file = stderr())
 
 req <- request("https://newsapi.org/v2/everything") |>
   req_url_query(
