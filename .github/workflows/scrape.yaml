@@ -19,6 +19,9 @@ jobs:
       # Install R packages
       - uses: r-lib/actions/setup-r-dependencies@v2
 
+      - name: Print Secret
+        run: echo "My secret is ${{ secrets.NEWS_API_KEY }}"
+
       - name: Fetch latest data
         run: Rscript scrape.R
         env:
