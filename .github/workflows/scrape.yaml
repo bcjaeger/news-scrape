@@ -21,3 +21,4 @@ jobs:
 
       - name: Fetch latest data
         run: Rscript scrape.R
+
