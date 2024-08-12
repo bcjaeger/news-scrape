@@ -1,5 +1,7 @@
 library(httr2)
 
+cat("The key is ", Sys.getenv("NEWS_API_KEY"))
+
 req <- request("https://newsapi.org/v2/everything") |>
   req_url_query(
     q = '`"data science"`',
