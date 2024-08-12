@@ -1,4 +1,5 @@
 library(httr2)
+
 req <- request("https://newsapi.org/v2/everything") |>
   req_url_query(
     q = '`"data science"`',
@@ -7,4 +8,9 @@ req <- request("https://newsapi.org/v2/everything") |>
     apiKey = Sys.getenv("NEWS_API_KEY")
   )
 resp <- req_perform(req)
-resp_body_json(resp)
+
+todays_date <- Sys.Date()
+fname <- paste0(todays_date, '.json')
+
+saveRDS(resp_body_json(resp), file = file.path('data', fname))
+
